@@ -28,7 +28,7 @@ const testimonials = [
 
 export function Testimonials() {
     return (
-        <section className="py-24 relative overflow-hidden">
+        <section id="testimonials" className="py-24 relative overflow-hidden">
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -z-10" />
 
@@ -51,14 +51,14 @@ export function Testimonials() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
-                            <Card className="h-full bg-white/5 border-white/10 backdrop-blur-sm">
+                            <Card className="h-full bg-card border-border backdrop-blur-sm hover:border-primary/50 transition-all duration-300 shadow-sm">
                                 <CardContent className="pt-6">
                                     <div className="flex gap-1 mb-4">
                                         {[...Array(5)].map((_, i) => (
                                             <Star key={i} className="w-4 h-4 fill-yellow-500 text-yellow-500" />
                                         ))}
                                     </div>
-                                    <p className="text-lg mb-6 text-gray-300">"{testimonial.content}"</p>
+                                    <p className="text-lg mb-6 text-muted-foreground">"{testimonial.content}"</p>
                                     <div className="flex items-center gap-4">
                                         <div className="relative w-10 h-10 rounded-full overflow-hidden">
                                             <Image
@@ -69,7 +69,7 @@ export function Testimonials() {
                                             />
                                         </div>
                                         <div>
-                                            <p className="font-semibold text-white">{testimonial.name}</p>
+                                            <p className="font-semibold text-foreground">{testimonial.name}</p>
                                             <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                                         </div>
                                     </div>

@@ -9,7 +9,7 @@ const techs = [
 
 export function TechMarquee() {
     return (
-        <section className="py-10 border-y border-white/5 bg-black/20 overflow-hidden">
+        <section className="py-10 border-y border-border bg-muted/30 overflow-hidden">
             <div className="flex">
                 <motion.div
                     className="flex gap-16 whitespace-nowrap"
@@ -17,7 +17,7 @@ export function TechMarquee() {
                     transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 >
                     {[...techs, ...techs].map((tech, i) => (
-                        <span key={i} className="text-2xl font-bold text-white/20 uppercase tracking-widest hover:text-blue-500/50 transition-colors cursor-default">
+                        <span key={i} className="text-2xl font-bold text-muted-foreground/30 uppercase tracking-widest hover:text-primary/50 transition-colors cursor-default">
                             {tech}
                         </span>
                     ))}

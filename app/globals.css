@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Base Colors - Light Mode (High Contrast) */
   --background: #ffffff;

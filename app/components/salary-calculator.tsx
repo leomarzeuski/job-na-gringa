@@ -35,7 +35,7 @@ export function SalaryCalculator() {
                         <p className="text-xl text-muted-foreground mb-8">
                             Faça uma simulação e veja o poder de ganhar em moeda forte morando no Brasil.
                         </p>
-                        <ul className="space-y-4 text-gray-300">
+                        <ul className="space-y-4 text-muted-foreground">
                             <li className="flex items-center gap-3">
                                 <div className="w-2 h-2 rounded-full bg-blue-500" />
                                 Salários 3x a 5x maiores que no Brasil
@@ -56,14 +56,14 @@ export function SalaryCalculator() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <Card className="bg-white/5 border-white/10 backdrop-blur-xl shadow-2xl">
+                        <Card className="bg-card border-border backdrop-blur-xl shadow-2xl">
                             <CardHeader>
                                 <CardTitle className="flex items-center justify-between">
                                     <span>Simulador de Renda</span>
                                     <div className="flex items-center gap-2 text-sm font-normal">
-                                        <span className={!isEuro ? "text-white" : "text-muted-foreground"}>USD</span>
+                                        <span className={!isEuro ? "text-foreground font-bold" : "text-muted-foreground"}>USD</span>
                                         <Switch checked={isEuro} onCheckedChange={setIsEuro} />
-                                        <span className={isEuro ? "text-white" : "text-muted-foreground"}>EUR</span>
+                                        <span className={isEuro ? "text-foreground font-bold" : "text-muted-foreground"}>EUR</span>
                                     </div>
                                 </CardTitle>
                             </CardHeader>
@@ -88,22 +88,22 @@ export function SalaryCalculator() {
                                     </div>
                                 </div>
 
-                                <div className="pt-8 border-t border-white/10 space-y-4">
+                                <div className="pt-8 border-t border-border space-y-4">
                                     <div className="flex justify-between items-center">
                                         <span className="text-muted-foreground">Mensal ({currencySymbol})</span>
-                                        <span className="text-2xl font-bold text-white">
+                                        <span className="text-2xl font-bold text-foreground">
                                             {currencySymbol} {monthlyIncomeForeign.toLocaleString('en-US')}
                                         </span>
                                     </div>
 
-                                    <div className="p-4 rounded-xl bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30">
+                                    <div className="p-4 rounded-xl bg-primary/5 border border-primary/20">
                                         <div className="flex justify-between items-center mb-1">
-                                            <span className="text-blue-200">Mensal em Reais (R$)</span>
+                                            <span className="text-muted-foreground">Mensal em Reais (R$)</span>
                                         </div>
-                                        <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                                        <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
                                             R$ {monthlyIncomeBRL.toLocaleString('pt-BR')}
                                         </div>
-                                        <p className="text-xs text-blue-300/60 mt-2">
+                                        <p className="text-xs text-muted-foreground mt-2">
                                             *Cotação estimada: {currencySymbol}1 = R${conversionRate}
                                         </p>
                                     </div>

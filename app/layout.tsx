@@ -21,6 +21,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Emprego Na Gringa - Sua Carreira Internacional Começa Aqui",
   description: "Desbloqueie sua carreira internacional. Junte-se à nossa comunidade exclusiva e tenha acesso a oportunidades de trabalho no exterior.",
+  icons: {
+    icon: '/logo-full.png',
+  },
 };
 
 export default function RootLayout({
