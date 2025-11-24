@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AnimatedBackground } from "@/app/components/animated-background";
-import { MouseFollower } from "@/app/components/mouse-follower";
 import { ScrollProgress } from "@/app/components/scroll-progress";
-import { ThemeProvider } from "@/app/components/theme-provider";
 import { Header } from "@/app/components/header";
 import { WhatsAppButton } from "@/app/components/whatsapp-button";
 
@@ -32,23 +30,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ScrollProgress />
-          <MouseFollower />
-          <AnimatedBackground />
-          <Header />
-          {children}
-          <WhatsAppButton />
-        </ThemeProvider>
+        <ScrollProgress />
+        <AnimatedBackground />
+        <Header />
+        {children}
+        <WhatsAppButton />
       </body>
     </html>
   );

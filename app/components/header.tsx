@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import { Button } from "@/app/components/ui/button"
-import { ModeToggle } from "@/app/components/mode-toggle"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -18,7 +17,7 @@ export function Header() {
     return (
         <motion.header
             className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled
-                ? "bg-background/80 backdrop-blur-md border-b border-border py-4"
+                ? "bg-white/90 backdrop-blur-md border-b border-slate-100 py-4 shadow-sm"
                 : "bg-transparent py-6"
                 }`}
             initial={{ y: -100 }}
@@ -32,27 +31,26 @@ export function Header() {
                             src="/logo-full.png"
                             alt="Emprego Na Gringa Logo"
                             fill
-                            className="object-contain dark:invert"
+                            className="object-contain"
                         />
                     </div>
                 </Link>
 
                 <nav className="hidden md:flex items-center gap-8">
-                    <Link href="#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    <Link href="#how-it-works" className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">
                         Como Funciona
                     </Link>
-                    <Link href="#testimonials" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    <Link href="#testimonials" className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">
                         Depoimentos
                     </Link>
-                    <Link href="#faq" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    <Link href="#faq" className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors">
                         FAQ
                     </Link>
                 </nav>
 
                 <div className="flex items-center gap-4">
-                    <ModeToggle />
                     <Link href="#cta">
-                        <Button className="hidden sm:flex bg-blue-600 hover:bg-blue-500 text-white border-0 shadow-lg shadow-blue-500/20">
+                        <Button className="hidden sm:flex bg-amber-500 hover:bg-amber-600 text-white border-0 shadow-md shadow-amber-500/20 font-bold">
                             Começar Agora
                         </Button>
                     </Link>

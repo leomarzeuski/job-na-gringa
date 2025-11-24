@@ -1,77 +1,133 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { CheckCircle2 } from "lucide-react"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { UserCircle, Search, Users, MessageSquare, Wallet, ArrowRight } from "lucide-react"
 
 const steps = [
     {
-        title: "Prepare seu Perfil",
-        description: "Otimizamos seu LinkedIn e currículo para os padrões internacionais, tornando você irresistível para recrutadores.",
+        id: "01",
+        title: "Otimização de Perfil",
+        description: "Transformamos seu LinkedIn e currículo em ímãs de recrutadores. Utilizamos palavras-chave estratégicas e formatação ATS (Applicant Tracking System) para garantir que seu perfil seja encontrado pelas melhores empresas.",
+        icon: UserCircle,
+        color: "text-blue-600",
+        bg: "bg-blue-100"
     },
     {
-        title: "Encontre as Vagas",
-        description: "Acesso à nossa lista curada de plataformas e empresas que contratam brasileiros remotamente.",
+        id: "02",
+        title: "Busca Estratégica",
+        description: "Pare de perder tempo em vagas que não dão retorno. Ensinamos como acessar o 'mercado oculto' de vagas remotas e usar filtros avançados para encontrar oportunidades que pagam em dólar e aceitam brasileiros.",
+        icon: Search,
+        color: "text-amber-600",
+        bg: "bg-amber-100"
     },
     {
-        title: "Aplique com Estratégia",
-        description: "Use nossos templates de mensagem validados para abordar recrutadores e garantir entrevistas.",
+        id: "03",
+        title: "Networking Ativo",
+        description: "Não dependa apenas de candidaturas. Aprenda scripts validados para conectar diretamente com hiring managers e recrutadores, conseguindo indicações e furando a fila dos processos seletivos.",
+        icon: Users,
+        color: "text-green-600",
+        bg: "bg-green-100"
     },
     {
-        title: "Passe na Entrevista",
-        description: "Treinamento completo de entrevista em inglês (e técnico) para você se sentir seguro.",
+        id: "04",
+        title: "Entrevista Internacional",
+        description: "Perca o medo do inglês. Preparamos você com simulações reais, frameworks para responder perguntas comportamentais (STAR method) e dicas técnicas para passar confiança durante a entrevista.",
+        icon: MessageSquare,
+        color: "text-purple-600",
+        bg: "bg-purple-100"
     },
     {
-        title: "Receba em Dólar",
-        description: "Guia completo sobre como abrir conta internacional, receber pagamentos e pagar impostos corretamente.",
+        id: "05",
+        title: "Oferta e Pagamento",
+        description: "O momento da vitória. Ajudamos você a negociar o melhor salário possível e guiamos todo o processo burocrático: contrato internacional (Contractor vs EOR), abertura de conta e recebimento em moeda forte.",
+        icon: Wallet,
+        color: "text-rose-600",
+        bg: "bg-rose-100"
     }
 ]
 
 export function HowItWorks() {
+    const [activeStep, setActiveStep] = useState(0)
+
+    const ActiveIcon = steps[activeStep].icon
+
     return (
-        <section id="how-it-works" className="py-24 relative">
+        <section id="how-it-works" className="py-24 bg-slate-50">
             <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                        Como funciona o <span className="text-primary">Método</span>
+                <div className="text-center max-w-3xl mx-auto mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+                        Seu caminho até a <br />
+                        <span className="text-blue-600">Contratação Internacional</span>
                     </h2>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Um caminho claro e validado para sua carreira internacional.
+                    <p className="text-xl text-slate-600 leading-relaxed">
+                        Um processo validado e replicável para você sair do zero e conquistar seu emprego na gringa.
                     </p>
                 </div>
 
-                <div className="relative max-w-4xl mx-auto">
-                    {/* Vertical Line */}
-                    <div className="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/0 via-primary/50 to-primary/0" />
-
-                    <div className="space-y-12">
+                <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto items-start">
+                    {/* Left Side: Navigation */}
+                    <div className="w-full lg:w-1/3 flex flex-col gap-4">
                         {steps.map((step, index) => (
-                            <motion.div
+                            <button
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.5, delay: index * 0.2 }}
-                                className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? "md:flex-row-reverse" : ""
+                                onClick={() => setActiveStep(index)}
+                                className={`group flex items-center gap-4 p-4 rounded-xl transition-all duration-300 text-left border ${activeStep === index
+                                    ? "bg-white border-blue-200 shadow-md scale-[1.02]"
+                                    : "bg-transparent border-transparent hover:bg-white/50 hover:border-slate-200"
                                     }`}
                             >
-                                {/* Timeline Dot */}
-                                <div className="absolute left-0 md:left-1/2 -translate-x-[5px] md:-translate-x-1/2 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center z-10 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-                                    <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
-                                </div>
-
-                                {/* Content */}
-                                <div className="ml-12 md:ml-0 md:w-1/2 p-6 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <span className="text-4xl font-bold text-primary/10">0{index + 1}</span>
-                                        <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
-                                    </div>
-                                    <p className="text-muted-foreground">{step.description}</p>
-                                </div>
-
-                                {/* Empty space for the other side */}
-                                <div className="hidden md:block md:w-1/2" />
-                            </motion.div>
+                                <span className={`text-2xl font-bold transition-colors ${activeStep === index ? "text-blue-600" : "text-slate-300 group-hover:text-slate-400"
+                                    }`}>
+                                    {step.id}
+                                </span>
+                                <span className={`text-lg font-semibold transition-colors ${activeStep === index ? "text-slate-900" : "text-slate-500 group-hover:text-slate-700"
+                                    }`}>
+                                    {step.title}
+                                </span>
+                                {activeStep === index && (
+                                    <motion.div
+                                        layoutId="active-arrow"
+                                        className="ml-auto"
+                                    >
+                                        <ArrowRight className="w-5 h-5 text-blue-600" />
+                                    </motion.div>
+                                )}
+                            </button>
                         ))}
+                    </div>
+
+                    {/* Right Side: Content Display */}
+                    <div className="w-full lg:w-2/3">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeStep}
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -20 }}
+                                transition={{ duration: 0.3 }}
+                                className="bg-white rounded-3xl p-8 md:p-12 border border-slate-100 shadow-xl min-h-[400px] flex flex-col justify-center relative overflow-hidden"
+                            >
+                                {/* Background Decoration */}
+                                <div className={`absolute top-0 right-0 w-64 h-64 ${steps[activeStep].bg} rounded-bl-full opacity-20 -mr-10 -mt-10 transition-colors duration-500`} />
+
+                                <div className={`w-16 h-16 rounded-2xl ${steps[activeStep].bg} flex items-center justify-center mb-8`}>
+                                    <ActiveIcon className={`w-8 h-8 ${steps[activeStep].color}`} />
+                                </div>
+
+                                <div className="relative z-10">
+                                    <span className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2 block">
+                                        Passo {steps[activeStep].id}
+                                    </span>
+                                    <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                                        {steps[activeStep].title}
+                                    </h3>
+                                    <p className="text-xl text-slate-600 leading-relaxed">
+                                        {steps[activeStep].description}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
                 </div>
             </div>

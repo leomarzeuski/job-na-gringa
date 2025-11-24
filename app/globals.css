@@ -5,74 +5,45 @@ html {
 }
 
 :root {
-  /* Base Colors - Light Mode (High Contrast) */
+  /* Wonsulting Inspired Theme - High Contrast & Bold */
   --background: #ffffff;
-  --foreground: #020617;
-  /* Slate 950 - Almost Black */
+  --foreground: #0f172a;
+  /* Slate 900 - Deep Black/Blue */
 
-  /* Primary Brand Colors (Vibrant Blue) */
+  /* Primary Brand Colors */
   --primary: #2563eb;
-  /* Blue 600 */
+  /* Blue 600 - Trust Color */
   --primary-foreground: #ffffff;
 
+  /* CTA Colors - Vibrant for conversion */
+  --cta: #f59e0b;
+  /* Amber 500 - Attention grabbing */
+  --cta-hover: #d97706;
+  /* Amber 600 */
+  --cta-foreground: #ffffff;
+
   /* Secondary/Accent */
-  --secondary: #f1f5f9;
-  /* Slate 100 */
-  --secondary-foreground: #0f172a;
-  /* Slate 900 */
+  --secondary: #f8fafc;
+  /* Slate 50 - Very light gray for sections */
+  --secondary-foreground: #1e293b;
 
   /* Muted */
-  --muted: #f8fafc;
-  /* Slate 50 */
-  --muted-foreground: #334155;
-  /* Slate 700 - Darker for better readability */
+  --muted: #f1f5f9;
+  /* Slate 100 */
+  --muted-foreground: #64748b;
+  /* Slate 500 */
 
-  /* Card/Glass */
+  /* Card/Border */
   --card: #ffffff;
-  --card-foreground: #020617;
-  /* Match foreground */
-  --card-border: #cbd5e1;
-  /* Slate 300 - Slightly darker border */
+  --card-foreground: #0f172a;
+  --card-border: #e2e8f0;
 
   /* Borders */
   --border: #e2e8f0;
   --input: #e2e8f0;
 
-  /* Radius */
+  /* Radius - Slightly more rounded for friendly/modern feel */
   --radius: 0.75rem;
-}
-
-.dark {
-  /* Base Colors - Dark Mode (Deep Space Blue) */
-  --background: #020617;
-  /* Slate 950 */
-  --foreground: #f8fafc;
-  /* Slate 50 */
-
-  /* Primary Brand Colors */
-  --primary: #3b82f6;
-  /* Blue 500 */
-  --primary-foreground: #ffffff;
-
-  /* Secondary/Accent */
-  --secondary: #1e293b;
-  /* Slate 800 */
-  --secondary-foreground: #f8fafc;
-
-  /* Muted */
-  --muted: #0f172a;
-  /* Slate 900 */
-  --muted-foreground: #94a3b8;
-  /* Slate 400 */
-
-  /* Card/Glass */
-  --card: rgba(15, 23, 42, 0.6);
-  --card-foreground: #f8fafc;
-  --card-border: rgba(148, 163, 184, 0.1);
-
-  /* Borders */
-  --border: rgba(148, 163, 184, 0.1);
-  --input: rgba(148, 163, 184, 0.1);
 }
 
 @theme inline {
@@ -80,6 +51,9 @@ html {
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-cta: var(--cta);
+  --color-cta-hover: var(--cta-hover);
+  --color-cta-foreground: var(--cta-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -91,85 +65,47 @@ html {
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-glow: pulse-glow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-
-  @keyframes float {
-
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-
-  @keyframes pulse-glow {
-
-    0%,
-    100% {
-      opacity: 0.5;
-      transform: scale(1);
-    }
-
-    50% {
-      opacity: 0.8;
-      transform: scale(1.05);
-    }
-  }
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: 'Inter', var(--font-sans);
+  /* Wonsulting uses clean sans-serif */
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Glassmorphism Utilities */
-.glass {
-  background: var(--card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--card-border);
+/* Wonsulting Style Utilities */
+.section-alternate {
+  background-color: var(--secondary);
 }
 
-.glass-hover {
-  transition: all 0.3s ease;
+.text-balance {
+  text-wrap: balance;
 }
 
-.glass-hover:hover {
-  background: rgba(30, 41, 59, 0.8);
-  border-color: rgba(59, 130, 246, 0.3);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+/* Bold Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
-/* Gradient Text */
-.text-gradient {
-  background: linear-gradient(to right, #60a5fa, #a855f7, #ec4899);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Professional Card */
+.pro-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
 }
 
-.text-gradient-blue {
-  background: linear-gradient(to right, #3b82f6, #06b6d4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Background Glow Effects */
-.glow-bg {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: -1;
+.pro-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }

@@ -32,7 +32,13 @@ export function AnimatedBackground() {
                 this.vx = (Math.random() - 0.5) * 0.5
                 this.vy = (Math.random() - 0.5) * 0.5
                 this.size = Math.random() * 2 + 1
-                this.color = `rgba(${Math.floor(Math.random() * 50 + 50)}, ${Math.floor(Math.random() * 100 + 150)}, 255, ${Math.random() * 0.3})`
+                // Professional blue and gray particles
+                const colors = [
+                    `rgba(30, 64, 175, ${Math.random() * 0.15 + 0.05})`, // Corporate blue
+                    `rgba(37, 99, 235, ${Math.random() * 0.12 + 0.05})`, // Lighter blue
+                    `rgba(71, 85, 105, ${Math.random() * 0.1 + 0.03})`, // Gray
+                ]
+                this.color = colors[Math.floor(Math.random() * colors.length)]
             }
 
             update() {
