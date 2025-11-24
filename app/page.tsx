@@ -1,12 +1,15 @@
+import dynamic from 'next/dynamic'
 import { Hero } from "@/app/components/hero"
 import { TechMarquee } from "@/app/components/tech-marquee"
-import { Features } from "@/app/components/features"
-import { SalaryCalculator } from "@/app/components/salary-calculator"
-import { HowItWorks } from "@/app/components/how-it-works"
-import { Testimonials } from "@/app/components/testimonials"
-import { FAQ } from "@/app/components/faq"
-import { CTA } from "@/app/components/cta"
-import { Footer } from "@/app/components/footer"
+
+// Dynamic imports for components below the fold
+const Features = dynamic(() => import("@/app/components/features").then(mod => mod.Features))
+const SalaryCalculator = dynamic(() => import("@/app/components/salary-calculator").then(mod => mod.SalaryCalculator))
+const HowItWorks = dynamic(() => import("@/app/components/how-it-works").then(mod => mod.HowItWorks))
+const Testimonials = dynamic(() => import("@/app/components/testimonials").then(mod => mod.Testimonials))
+const FAQ = dynamic(() => import("@/app/components/faq").then(mod => mod.FAQ))
+const CTA = dynamic(() => import("@/app/components/cta").then(mod => mod.CTA))
+const Footer = dynamic(() => import("@/app/components/footer").then(mod => mod.Footer))
 
 export default function Home() {
   return (

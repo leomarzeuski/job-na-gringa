@@ -17,7 +17,7 @@ export function TechMarquee() {
                 <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-slate-50 to-transparent z-10" />
 
                 <motion.div
-                    className="flex gap-20 whitespace-nowrap"
+                    className="flex gap-10 md:gap-20 whitespace-nowrap"
                     animate={{ x: ["0%", "-50%"] }}
                     transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
                 >
